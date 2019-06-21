@@ -6,25 +6,7 @@ Leps, J., Götzenberger, L., Valencia E,. de Bello Francesco (2019) Accounting f
 
 It provides functions to calculate synchrony indices for temporal ecological communities (i.e. records of co-occurring species abundances through time), and to simulate such communities.
 
-## Loading packages and scripts
-
-Only one additional package, gtools, is required apart from the ones in base R and loaded automatically to run the functions implemented in the script. So if you don't have gtools installed already, do so by
-```{r, eval=FALSE}
-install.packages("gtools")
-```
-If it is already installed, you can go ahead and load it, without installing it first.
-```{r}
-library(gtools)
-```
-
-Then, we have to source the scripts from whatever location you saved the script in on your computer. There are two separate scripts, one for the calculation of syncrhony indices, including the t3 version and the decomposition, and one script to simulate various degrees of synchrony among species of a community.
-
-Assuming that your working directory is set to the folder that contains the scripts, we can load them via
-```{r}
-source("calc_sync.R")
-source("syngenr.R")
-```
-Both these scripts contain a number of functions, but both have one main function, called just like the scripts themselves, i.e. calc_sync and syngenr. For these main functions we also provided two separate help files in pdf format in the appendices.
+The package contains two main functions, called calc_sync and syngenr. Below you find a short vignette that demonstrates the use of these functions. 
 
 ## Simulating temporal communities with syngenr
 
