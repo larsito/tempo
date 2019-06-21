@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Simulate fluctuations in species abundances across time</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for syngenr"><tr><td>syngenr</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>
+Simulate fluctuations in species abundances across time
+</h2>
+
+<h3>Description</h3>
+
+<p>The arguments in <code>syngenr</code> are set to predefined default values, which can of course
+be customised, or sampled from parameter spaces
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+syngenr(years = 100, n_sp = 16, max_rel_abu = 0.6, tot_abu = 300, power = 1.8, switch_env = c("on", "off"), mean_env_resp = 1, sd_env_resp = 1, bimodal_env = FALSE, comp = FALSE, switch_trend = c("on", "off"), mean_trend_resp = 1, sd_trend_resp = 1, bimodal_trend = FALSE, bound_pos = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>years</code></td>
+<td>
+<p>the length of the timeseries in years.</p>
+</td></tr>
+<tr valign="top"><td><code>n_sp</code></td>
+<td>
+<p>number of species in the community.</p>
+</td></tr>
+<tr valign="top"><td><code>tot_abu</code></td>
+<td>
+<p>total abundance of the community, representing e.g. the number of
+individuals or the total amount of biomass.</p>
+</td></tr>
+<tr valign="top"><td><code>power</code></td>
+<td>
+<p>the slope of the relationship between log(mean) and log(variance) of
+the abundances of the species.</p>
+</td></tr>
+<tr valign="top"><td><code>switch_env</code></td>
+<td>
+<p>character vector of length 1, either &quot;on&quot; or &quot;off&quot;. Defines if the
+species abundances repond to a hypothetical environmental cue.</p>
+</td></tr>
+<tr valign="top"><td><code>mean_env_resp</code></td>
+<td>
+<p>the mean of the normal distribution from which each of the
+species responses to the environemtnal cue is drawn.</p>
+</td></tr>
+<tr valign="top"><td><code>sd_env_resp</code></td>
+<td>
+<p>the standard deviation around the mean of the normal distribution
+from which each of the species responses to the environemtnal cue is drawn.</p>
+</td></tr>
+<tr valign="top"><td><code>bimodal_env</code></td>
+<td>
+<p>Logical. Making the reponse to the environmental cue either
+uniform among the species (if FALSE), or making the majority of half of the
+species respond positively, and the other half negatively.</p>
+</td></tr>
+<tr valign="top"><td><code>comp</code></td>
+<td>
+<p>Logical. If TRUE, species exhibit compensatory dynamics, i.e. the gain
+of abundance in a species from one year to the next, is compensated by the
+loss of abundance in another species, where the latter has a similar mean
+abundance value.</p>
+</td></tr>
+<tr valign="top"><td><code>switch_trend</code></td>
+<td>
+<p>Either &quot;on&quot; or &quot;off&quot;, defining if there is a general monotonic
+trend in abundances of species across the timeseries.</p>
+</td></tr>
+<tr valign="top"><td><code>mean_trend_resp</code></td>
+<td>
+<p>the mean of the normal distribution from which each of the
+species responses to the longterm trend is drawn. Default is 1.</p>
+</td></tr>
+<tr valign="top"><td><code>sd_trend_resp</code></td>
+<td>
+<p>the standard deviation around the mean of the normal
+distribution from which each of the species responses to the longterm trend is
+drawn. Default is 1.</p>
+</td></tr>
+<tr valign="top"><td><code>bimodal_trend</code></td>
+<td>
+<p>Logical. If TRUE, the majority of half of the species exhibit a
+positive long term trend of abundances, and the other half expresses a
+negative long term trend. If FALSE, most of the species exhibit a uniform long
+term trend in abundances, depending on the value set for mean_trend and
+mean_sd.</p>
+</td></tr>
+<tr valign="top"><td><code>bound_pos</code></td>
+<td>
+<p>Logical. If true, abundance values that are simulated to be
+negative, will be set to zero.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>The output is a list with four elements
+</p>
+<p><code>$time_species_matrix</code>: the simulated temporal community data where species are columns and years are rows.
+</p>
+<p><code>$param_years</code>: values for the evnironmental cue and the trend throughout the years. Note that these contain values even if the environment or trend are
+switched off.
+</p>
+<p><code>$param_species</code>: a data frame containing the responses to the environment and the long term trend, as well as the mean abundance and its standard deviation for each species in the community.
+</p>
+<p><code>$param_general</code>: a data frame with only one row, containing all the parameter settings from the function call.
+</p>
+
+
+</body></html>
