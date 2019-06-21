@@ -1,4 +1,4 @@
-# "Simulating temporal communities and assessing their detrended synchrony"
+# Simulating temporal communities and assessing their detrended synchrony
 
 This package accompanies the article
 
