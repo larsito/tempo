@@ -1,16 +1,10 @@
----
-title: "Simulating temporal communities and assessing their detrended synchrony "
-author: "Lars Götzenberger"
-date: "6/20/2019"
-output:
-  pdf_document: default
-  html_document:
-    df_print: paged
----
+### "Simulating temporal communities and assessing their detrended synchrony "
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+This package accompanies the article
+
+Leps, J., Götzenberger, L., Valencia E,. de Bello Francesco (2019) Accounting for long-term directional trends on year-to-year synchrony in species fluctuations. Ecography. 
+
+It provides functions to calculate synchrony indices for temporal ecological communities (i.e. records of co-occurring species abundances through time), and to simulate such communities.
 
 ## Loading packages and scripts
 
