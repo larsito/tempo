@@ -37,9 +37,9 @@ calculated by the indices and decompose arguments.
 \details{
 At the moment, the following indices of synchrony are available (in the order they are displayed in the function output, give that all indices haven been calculated):
 
-\code{eta}: The mean correlation of abundances of each species with all other species.
+\code{eta}: The mean correlation of abundances of each species with all other species (see Gross et al. 2014).
 
-\code{eta_w}: As eta, but the mean is weighted by the total abundances of species.
+\code{eta_w}: As eta, but the mean is weighted by the total abundances of species (see Blüthgen et al. 2016).
 
 \code{eat_t3}, \code{eta_t3_w}: The t3 versions of eta and eta_w, respectively.
 
@@ -47,11 +47,11 @@ At the moment, the following indices of synchrony are available (in the order th
 
 \code{phi_t3}: t3 modified version of Phi.
 
-\code{varrat}: variance ratio after Schluter (1984), see also Leps ().
+\code{varrat}: variance ratio after Schluter (1984).
 
 \code{varrat_t3}: t3 version of the variance ratio.
 
-\code{log_varrat}: Log transformed variance ratio, see Leps et al. 2018.
+\code{log_varrat}: Log transformed variance ratio (see Leps et al. 2018).
 
 \code{log_varrat_t3}: t3 version of the log variance ratio.
 
@@ -60,6 +60,8 @@ At the moment, the following indices of synchrony are available (in the order th
 \code{syn_trend}: The component of total synchrony that is attributable to trend (Strend).
 
 \code{syn_detrend}: The component of total synchrony that is attributable to year-to-year fluctuations (Sdetrend).
+
+Stotal, Strend, and Sdetrend, as well as the t3 (i.e. three term local quadrat variance) versions of the standard indices are described in Leps et al. 2019.
 }
 \references{
 Blüthgen, N., N. K. Simons, K. Jung, D. Prati, S. C. Renner, S.
@@ -72,17 +74,20 @@ Gross, K., B. J. Cardinale, J. W. Fox, A. Gonzalez, M. Loreau, H.
   W. Polley, P. B. Reich, and J. van Ruijven. 2014. Species richness and the
   temporal stability of biomass production: a new analysis of recent
   biodiversity experiments. Am Nat 183:1-12.
+  
+Leps, J., Götzenberger, L., Valencia E., de Bello, Francesco. 2019. Accounting for long-term   
+  directional trends on year-to-year synchrony in species fluctuations. Ecography. 
 
 Leps, J., M. Majekova, A. Vitova, J. Dolezal, and F. de Bello.
   2018. Stabilizing effects in temporal fluctuations: management, traits, and
-  species richness in high-diversity communities. ECOLOGY 99:360-371.
+  species richness in high-diversity communities. Ecology 99:360-371.
   
 Loreau, M., and C. de Mazancourt. 2008. Species Synchrony and Its
   Drivers: Neutral and Nonneutral Community Dynamics in Fluctuating
-  Environments. The American Naturalist 172:E48-E66.
+  Environments. Am Nat 172:E48-E66.
 
 Schluter, D. 1984. A Variance Test for Detecting Species
-  Associations, with Some Example Applications. ECOLOGY 65:998-998.
+  Associations, with Some Example Applications. Ecology 65:998-998.
 }
 \author{
 Lars Götzenberger
