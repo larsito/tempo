@@ -1,2 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^.*\.Rhistory$
+^notes$
+^RdtoHTML\.R$
+^package_script\.R$
