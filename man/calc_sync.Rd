@@ -109,7 +109,7 @@ Lars Götzenberger
 nsp <- 20 # 20 species 
 nyears <- 10 # over 10 years
 tempcommunity <- replicate(nyears, sample(0:30, nsp)) 
-calc_sync(tempocommunity)
+calc_sync(tempcommunity)
 
 # For two communities at once
 tempcom_list <- list(tempcommunity, tempcommunity)
