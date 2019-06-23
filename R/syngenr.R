@@ -68,6 +68,9 @@ syngenr <- function(years = 100,
                     sd_trend_resp = 1,
                     bimodal_trend = FALSE,
                     bound_pos = TRUE) {
+  if(!"gtools" %in% installed.packages()[, 1]){
+    warning("You need to install package gtools first")
+  }
   switch_env <- match.arg(switch_env)
   switch_trend <- match.arg(switch_trend)
   mean_abu <- tot_abu * geom_seq(max_rel_abu, n_sp)

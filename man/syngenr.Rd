@@ -5,11 +5,15 @@
 Simulate fluctuations in species abundances across time
 }
 \description{
-The arguments in \code{syngenr} are set to predefined default values, which can of course
-be customised, or sampled from parameter spaces
+\code{syngenr} simulates the fluctuations of abundances of species in a community through time. Arguments can be set so that different fluctuation patterns can be simulated, i.e. synchrony, antisynchrony, and random fluctations. In addition, directional trends can be build into the species abundance fluctuations.
+
+\code{syngenr} comes with predefined default values for all its arguments, so that running it without any arguments specified (i.e. \code{syngenr()}) will also return a result. 
 }
 \usage{
-syngenr(years = 100, n_sp = 16, max_rel_abu = 0.6, tot_abu = 300, power = 1.8, switch_env = c("on", "off"), mean_env_resp = 1, sd_env_resp = 1, bimodal_env = FALSE, comp = FALSE, switch_trend = c("on", "off"), mean_trend_resp = 1, sd_trend_resp = 1, bimodal_trend = FALSE, bound_pos = TRUE)
+syngenr(years = 100, n_sp = 16, max_rel_abu = 0.6, tot_abu = 300, power = 1.8, 
+switch_env = c("on", "off"), mean_env_resp = 1, sd_env_resp = 1, bimodal_env = FALSE, 
+comp = FALSE, switch_trend = c("on", "off"), mean_trend_resp = 1, sd_trend_resp = 1, 
+bimodal_trend = FALSE, bound_pos = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -61,7 +65,7 @@ mean_sd.}
 negative, will be set to zero.}
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+
 }
 \value{
 The output is a list with four elements
@@ -76,10 +80,11 @@ switched off.
 \code{$param_general}: a data frame with only one row, containing all the parameter settings from the function call.
 }
 \references{
-%% ~put references to the literature/web site here ~
+Leps, J., Götzenberger, L., Valencia E., de Bello, Francesco. 2019. Accounting for long-term   
+  directional trends on year-to-year synchrony in species fluctuations. Ecography. 
 }
 \author{
-%%  ~~who you are~~
+Lars Götzenberger
 }
 \note{
 %%  ~~further notes~~
@@ -91,7 +96,17 @@ switched off.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
+# Using syngenr with it's default values will simulate community of 16 species and 
+# 100 years, with a signature of synchrony and a common positive longterm trend of species. 
+simcom_sync_trend <- syngenr()
 
+# The actual community is saved in the first list element 
+simcom_sync_trend[[1]]
+
+# Community with 8 species, 40 years, anti-synchrony, and not long-term trend
+simcom_async_notrend <- syngenr(years = 40, n_sp = 8, bimodal_env = TRUE, comp = TRUE,
+switch_trend = "off")
+simcom_async_notrend[[1]]
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

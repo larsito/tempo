@@ -8,6 +8,8 @@ Calculate synchrony indices
 Function to calculate all or a subset of synchrony indices, including their
 three term local quadrat variance (t3) version, and the decomposition of the
 variance ratio index into Stotal, Strend, and Sdetrended.
+
+Note that the indices get calculated for a single temporal community. To do this for multiple communities at once, we can, e.g., use lapply (see Examples). 
 }
 \usage{
 calc_sync(x, decompose = TRUE, indices = c("eta", "eta_t3", "eta_w",
@@ -101,8 +103,18 @@ Lars Götzenberger
 \seealso{
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
-\examples{
 
+\examples{
+# For the purpose of demonstration, with some (overly) simplistic  simulated data
+nsp <- 20 # 20 species 
+nyears <- 10 # over 10 years
+tempcommunity <- replicate(nyears, sample(0:30, nsp)) 
+calc_sync(tempocommunity)
+
+# For two communities at once
+tempcom_list <- list(tempcommunity, tempcommunity)
+sync_indices <- lapply(tempcom_list, calc_sync)
+do.call("rbind", sync_indices) # make into a data frame 
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
