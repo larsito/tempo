@@ -56,7 +56,7 @@ calc_sync <- function(x,
   out <- do.call("cbind", out)
   names(out) <- indices
   if(decompose == TRUE) {
-    deco <- tempo:::decompostr(x)
+    deco <- decompostr(x)
     out <- data.frame(out, deco)
   }
   return(out)
@@ -174,22 +174,22 @@ cor_algo <- function(x, method, weighted = FALSE) {
 #'   community stability through changes in asynchrony rather than diversity.
 #'   Nat Commun 7:10697.
 eta <- function(x) {
-  tempo:::cor_algo(x, method = cor)
+  cor_algo(x, method = cor)
 }
 
 #' @rdname eta
 eta_t3 <- function(x) {
-  tempo:::cor_algo(x, method = tempo:::cor_t3)
+  cor_algo(x, method = cor_t3)
 }
 
 #' @rdname eta
 eta_w <- function(x) {
-  tempo:::cor_algo(x, method = cor, weighted = TRUE)
+  cor_algo(x, method = cor, weighted = TRUE)
 }
 
 #' @rdname eta
 eta_t3_w <- function(x) {
-  tempo:::cor_algo(x, method = tempo:::cor_t3, weighted = TRUE)
+  cor_algo(x, method = cor_t3, weighted = TRUE)
 }
 
 #' Simple mean pairwise correlation between species as a measure of synchrony
@@ -224,7 +224,7 @@ varrat <- function(x, log_trans = FALSE, t3 = FALSE) {
     all_cov <- cov(x, use = "pairwise.complete.obs")
     col_var <- diag(all_cov)
   } else {
-    all_cov <- tempo:::var_cov_mat_t3(comdat)
+    all_cov <- var_cov_mat_t3(x)
     col_var <- diag(all_cov)
   }
   com_var <- sum(all_cov)
@@ -255,19 +255,19 @@ varrat <- function(x, log_trans = FALSE, t3 = FALSE) {
 #' @export varrat_t3
 #' @export log_varrat_t3
 log_varrat <- function(x) {
-  vr <- tempo:::varrat(x, log_trans = TRUE, t3 = FALSE)
+  vr <- varrat(x, log_trans = TRUE, t3 = FALSE)
   return(vr)
 }
 
 #' @rdname log_varrat
 varrat_t3 <- function(x) {
-  vr <- tempo:::varrat(x, log_trans = TRUE, t3 = FALSE)
+  vr <- varrat(x, log_trans = FALSE, t3 = TRUE)
   return(vr)
 }
 
 #' @rdname log_varrat
 log_varrat_t3 <- function(x) {
-  vr <-tempo:::varrat(x, log_trans = TRUE)
+  vr <-varrat(x, log_trans = TRUE, t3 = TRUE)
   return(vr)
 }
 
@@ -295,7 +295,7 @@ phi <- function (x) {
 phi_t3 <- function (x) {
   species.var = apply(x, MARGIN = 2, FUN = var_t3)
   species.sd = sqrt(species.var)
-  community.var = tempo:::var_t3(rowSums(x))
+  community.var = var_t3(rowSums(x))
   return(community.var / sum(species.sd, na.rm = TRUE) ^ 2)
 }
 
@@ -333,14 +333,14 @@ var_t3 <- function(x) {
 #' @rdname var_t3
 #' @export cov_t3
 cov_t3 <- function(x, y) {
-  cov <- (tempo:::var_t3(x + y) - tempo:::var_t3(x) - tempo:::var_t3(y)) / 2
+  cov <- (var_t3(x + y) - var_t3(x) - var_t3(y)) / 2
   return(cov)
 }
 
 #' @rdname var_t3
 #' @export cor_t3
 cor_t3 <- function(x, y) {
-  cor <- tempo:::cov_t3(x, y) / sqrt(tempo:::var_t3(x) * tempo:::var_t3(y))
+  cor <- cov_t3(x, y) / sqrt(var_t3(x) * var_t3(y))
   return(cor)
 }
 
@@ -358,10 +358,10 @@ var_cov_mat_t3 <- function(x) {
   nc <- ncol(x)
   S <- matrix(NA, nc, nc)
   for (i in 1:nc) {
-    S[i, i] <- tempo:::var_t3(x[, i])
+    S[i, i] <- var_t3(x[, i])
     for (j in (i + 1):nc) {
       if (i < nc) {
-        S[i, j] <- tempo:::cov_t3(x[, i], x[, j])
+        S[i, j] <- cov_t3(x[, i], x[, j])
         S[j, i] <- S[i, j]
       }
     }
