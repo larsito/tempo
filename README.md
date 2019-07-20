@@ -2,7 +2,7 @@
 
 This package accompanies the article
 
-Leps, J., Götzenberger, L., Valencia E., de Bello, Francesco (2019) Accounting for long-term directional trends on year-to-year synchrony in species fluctuations. Ecography. 
+Leps, J., Götzenberger, L., Valencia E., de Bello, Francesco (2019) Accounting for long-term directional trends on year-to-year synchrony in species fluctuations. Ecography. doi: [10.1111/ecog.04528](https://onlinelibrary.wiley.com/doi/abs/10.1111/ecog.04528)
 
 It provides functions to calculate synchrony indices for temporal ecological communities (i.e. records of co-occurring species abundances through time), and to simulate such communities.
 
